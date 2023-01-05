@@ -1,0 +1,88 @@
+export default function StocksPageTile() {
+  const classes = useStyles();
+ 
+  const [open, setOpen] = React.useState(false);
+ 
+  //Only on first render
+  useEffect(() => {}, []);
+ 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+ 
+  const handleClose = () => {
+    setOpen(false);
+  };
+ 
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <main>
+       
+        <br />
+        <Grid container spacing={4}>
+          {featuredPosts.map((card) => (
+            <Grid item key={card.title} xs={12} sm={6} md={4}>
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={card.image}
+                  title={card.title}
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography
+                    gutterBottom
+                    variant="h6"
+                    className={classes.subHeading}
+                  >
+                    {card.title}
+                  </Typography>
+                 
+ 
+                  <CardActions>
+                   
+ 
+             
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+ 
+        <Dialog
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          maxWidth="lg"
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">
+           
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              
+             
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+           
+          </DialogActions>
+        </Dialog>
+ 
+        <br />
+        <br />
+        <br />
+ 
+        <BottomNavigationPage />
+      </main>
+    </React.Fragment>
+  );
+}
+ 
+const featuredPosts = [
+ 
+];
